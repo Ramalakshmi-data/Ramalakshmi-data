@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ramalakshmi · Data Analyst</title>
+<meta name="description" content="Ramalakshmi — data analyst turning raw data into clear, decision-ready insights.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============ EDIT COLOURS HERE ============ */
+:root{
+  --bg:#08141A; --bg2:#0C1D25; --card:rgba(18,40,50,.55); --line:rgba(160,220,230,.13);
+  --ink:#EAF4F6; --mut:#9DB4BB; --faint:#5F7A82;
+  --a1:#2DD4BF; --a2:#38BDF8; --hi:#FBBF24;
+  --grad:linear-gradient(90deg,var(--a1),var(--a2));
+  --f-d:'Space Grotesk',system-ui,sans-serif;
+  --f-b:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-m:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  --r:18px; --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--ink);font:16px/1.65 var(--f-b);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(60vw 50vh at 85% -10%,rgba(56,189,248,.16),transparent 70%),
+             radial-gradient(50vw 50vh at -10% 40%,rgba(45,212,191,.10),transparent 70%),
+             linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 64px;
+  mask-image:linear-gradient(#000,rgba(0,0,0,.35))}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.mono{font-family:var(--f-m)}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ---------- nav ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(8,20,26,.72);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font:600 17px var(--f-d)}
+.logo b{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--grad);color:#062027;font-size:14px}
+nav ul{display:flex;gap:4px;list-style:none}
+nav a{display:block;padding:8px 14px;border-radius:999px;font-size:14px;color:var(--mut);transition:.2s}
+nav a:hover{color:var(--ink)}
+nav a.on{color:var(--ink);background:rgba(45,212,191,.12)}
+.status{display:flex;align-items:center;gap:8px;font:500 12px var(--f-m);color:var(--a1);
+  border:1px solid rgba(45,212,191,.35);padding:6px 12px;border-radius:999px;white-space:nowrap}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--a1);box-shadow:0 0 0 0 var(--a1);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.burger{display:none;background:none;border:0;color:var(--ink);font-size:22px;cursor:pointer}
+
+/* ---------- sections ---------- */
+section{padding:110px 0 40px}
+.eyebrow{font:500 12px var(--f-m);letter-spacing:.14em;text-transform:uppercase;color:var(--a1);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--a1)}
+h1,h2,h3{font-family:var(--f-d);letter-spacing:-.02em;line-height:1.1}
+h2{font-size:clamp(30px,4.2vw,46px);margin-bottom:18px}
+.lead{color:var(--mut);font-size:18px;max-width:620px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;backdrop-filter:blur(6px)}
+
+/* reveal */
+[data-r]{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+[data-r].in{opacity:1;transform:none}
+
+/* ---------- hero ---------- */
+#home{min-height:100vh;display:flex;align-items:center;padding-top:96px}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,5.6vw,66px);margin:6px 0 22px}
+.hero p{color:var(--mut);font-size:18px;max-width:520px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:600;font-size:15px;transition:.2s}
+.btn.p{background:var(--grad);color:#062027}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 10px 30px -10px rgba(45,212,191,.6)}
+.btn.s{border:1px solid var(--line);color:var(--ink)}
+.btn.s:hover{border-color:var(--a1)}
+.facts{display:flex;gap:34px;margin-top:44px;flex-wrap:wrap}
+.facts div b{display:block;font:700 28px var(--f-d)}
+.facts div span{font-size:13px;color:var(--faint)}
+
+/* mini dashboard */
+.dash{padding:0;overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,.7)}
+.dash .bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line);font:12px var(--f-m);color:var(--faint)}
+.dash .bar i{width:10px;height:10px;border-radius:50%;background:#33474e}
+.dash .bar span{margin-left:8px}
+.dash .body{padding:20px}
+.q{font:13px/1.7 var(--f-m);color:var(--mut);min-height:46px;margin-bottom:18px}
+.q .k{color:var(--a2)} .q .c{display:inline-block;width:8px;height:15px;background:var(--a1);vertical-align:-2px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.kpi{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:12px}
+.kpi small{display:block;font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.08em}
+.kpi b{font:700 21px var(--f-d)}
+.kpi em{font:500 11px var(--f-m);color:var(--a1);font-style:normal}
+.chart{display:flex;align-items:flex-end;gap:8px;height:130px;padding-top:6px;border-bottom:1px solid var(--line)}
+.chart u{flex:1;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--a2),rgba(45,212,191,.35));height:0;transition:height 1s cubic-bezier(.2,.8,.2,1)}
+.chart u.top{background:linear-gradient(180deg,var(--hi),rgba(251,191,36,.35))}
+.months{display:flex;gap:8px;margin-top:6px}
+.months span{flex:1;text-align:center;font:10px var(--f-m);color:var(--faint)}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start}
+.about p{color:var(--mut);margin-bottom:16px}
+.about p strong{color:var(--ink);font-weight:600}
+.profile h3{font-size:22px;margin-bottom:4px}
+.profile .role{color:var(--a1);font:500 13px var(--f-m);margin-bottom:18px}
+.profile dl{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;font-size:14px}
+.profile dt{color:var(--faint)} .profile dd{color:var(--ink)}
+
+/* ---------- skills ---------- */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.skill .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(45,212,191,.1);color:var(--a1);font-size:20px;margin-bottom:16px}
+.skill h3{font-size:19px;margin-bottom:6px}
+.skill p{color:var(--mut);font-size:14px;margin-bottom:16px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{font:500 12px var(--f-m);padding:5px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink)}
+.meter{margin-top:14px}
+.meter div{display:flex;justify-content:space-between;font-size:13px;color:var(--mut);margin-bottom:5px}
+.meter s{display:block;height:6px;border-radius:9px;background:rgba(255,255,255,.06);overflow:hidden;text-decoration:none}
+.meter s i{display:block;height:100%;width:0;background:var(--grad);border-radius:9px;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+
+/* ---------- process ---------- */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:44px;counter-reset:s}
+.step{position:relative;padding:22px 18px}
+.step::before{counter-increment:s;content:"0" counter(s);font:500 12px var(--f-m);color:var(--a1);display:block;margin-bottom:12px}
+.step h3{font-size:17px;margin-bottom:8px}
+.step p{font-size:13.5px;color:var(--mut)}
+.step:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:var(--faint);z-index:2}
+
+/* ---------- journey ---------- */
+.tl{margin-top:40px;border-left:1px solid var(--line);padding-left:30px;display:grid;gap:22px}
+.tl .card{position:relative}
+.tl .card::before{content:"";position:absolute;left:-37px;top:30px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--a1)}
+.tl .when{font:500 12px var(--f-m);color:var(--a1)}
+.tl h3{font-size:19px;margin:6px 0 4px}
+.tl .org{color:var(--mut);font-size:14px;margin-bottom:10px}
+.tl ul{padding-left:18px;color:var(--mut);font-size:14.5px}
+
+/* ---------- projects ---------- */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px}
+.proj{display:flex;flex-direction:column;transition:.25s}
+.proj:hover{transform:translateY(-4px);border-color:rgba(45,212,191,.45)}
+.proj .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.proj .kind{font:500 12px var(--f-m);color:var(--hi)}
+.proj h3{font-size:22px;margin-bottom:10px}
+.proj p{color:var(--mut);font-size:15px;margin-bottom:18px;flex:1}
+.proj .stats{display:flex;gap:22px;margin-bottom:18px}
+.proj .stats b{display:block;font:700 20px var(--f-d)}
+.proj .stats span{font-size:12px;color:var(--faint)}
+.proj .links{display:flex;gap:16px;margin-top:18px;font:500 14px var(--f-b);color:var(--a1)}
+.proj .links a:hover{text-decoration:underline}
+.proj.soon{border-style:dashed;justify-content:center;align-items:center;text-align:center;min-height:280px}
+.proj.soon p{flex:0}
+
+/* ---------- latest from github (auto) ---------- */
+.latest{margin-top:64px}
+.latest-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.latest-head h3{font-size:24px}
+.latest-head p{color:var(--mut);font-size:14px}
+.live{display:inline-flex;align-items:center;gap:8px;font:500 12px var(--f-m);color:var(--a1)}
+.live i{width:7px;height:7px;border-radius:50%;background:var(--a1);animation:ping 2s infinite}
+.repos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.repo{display:flex;flex-direction:column;padding:20px;transition:.25s}
+.repo:hover{transform:translateY(-3px);border-color:rgba(56,189,248,.45)}
+.repo h4{font:600 17px var(--f-d);margin-bottom:6px;color:var(--ink)}
+.repo p{color:var(--mut);font-size:14px;flex:1;margin-bottom:14px}
+.repo .meta{display:flex;gap:14px;flex-wrap:wrap;font:12px var(--f-m);color:var(--faint)}
+.repo .meta .lang::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--a2);margin-right:6px}
+.repo .tags{margin-bottom:12px}
+.repo .tags span{font-size:11px;padding:3px 8px}
+.repo.skel{min-height:150px;background:linear-gradient(90deg,var(--card),rgba(45,212,191,.08),var(--card));background-size:200% 100%;animation:sh 1.4s infinite}
+@keyframes sh{to{background-position:-200% 0}}
+.repos-msg{color:var(--mut);font-size:14px;grid-column:1/-1}
+.repos-msg a{color:var(--a1)}
+@media (max-width:960px){.repos{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.repos{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.contact{text-align:center;padding:60px 28px}
+.contact h2{font-size:clamp(30px,4.6vw,52px);max-width:780px;margin:0 auto 16px}
+.contact .lead{margin:0 auto}
+.contact .btns{justify-content:center}
+footer{padding:40px 0;text-align:center;color:var(--faint);font-size:13px}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .hero,.about{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:1fr 1fr}
+  .step::after{display:none}
+}
+@media (max-width:760px){
+  .status{display:none}
+  .burger{display:block}
+  nav ul{position:absolute;top:64px;left:0;right:0;flex-direction:column;padding:12px 16px;background:var(--bg2);border-bottom:1px solid var(--line);display:none}
+  nav ul.open{display:flex}
+  .wrap{padding:0 16px}
+  .skills,.projects,.flow,.kpis{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(3,1fr)}
+  .kpi b{font-size:17px}
+  section{padding:84px 0 24px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  [data-r]{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#home" class="logo"><b>RL</b>Ramalakshmi</a>
+    <nav aria-label="Sections">
+      <ul id="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <span class="status"><i></i>Open to work</span>
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<main>
+<!-- ================= HOME ================= -->
+<section id="home">
+  <div class="wrap hero">
+    <div data-r>
+      <div class="eyebrow">Data Analyst</div>
+      <h1>I turn raw data into <span class="grad">decisions people trust.</span></h1>
+      <p>Hi, I'm Ramalakshmi. I clean, explore and visualise data, then build dashboards that answer the question behind the numbers.</p>
+      <div class="btns">
+        <a class="btn p" href="#projects">View my projects ↓</a>
+        <a class="btn s" href="https://github.com/Ramalakshmi-data" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <div class="facts">
+        <div><b data-count="102" data-suffix="K+">0</b><span>rows analysed in one project</span></div>
+        <div><b data-count="2" data-suffix="">0</b><span>projects published</span></div>
+        <div><b data-count="5" data-suffix="">0</b><span>step analysis process</span></div>
+      </div>
+    </div>
+
+    <div class="card dash" data-r aria-hidden="true">
+      <div class="bar"><i></i><i></i><i></i><span>revenue_overview.sql</span></div>
+      <div class="body">
+        <div class="q" id="typed"></div>
+        <div class="kpis">
+          <div class="kpi"><small>Revenue</small><b data-count="4.8" data-dec="1" data-prefix="$" data-suffix="M">0</b> <em>▲ 12%</em></div>
+          <div class="kpi"><small>Orders</small><b data-count="102" data-suffix="K">0</b> <em>▲ 8%</em></div>
+          <div class="kpi"><small>Avg value</small><b data-count="47" data-prefix="$">0</b> <em>▲ 3%</em></div>
+        </div>
+        <div class="chart" id="chart"></div>
+        <div class="months" id="months"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap about">
+    <div data-r>
+      <div class="eyebrow">About</div>
+      <h2>Curious about the <span class="grad">"why"</span> behind every number</h2>
+      <p>I enjoy taking large, messy datasets and making them make sense. My favourite moment in any project is when a pattern jumps out of the data and suddenly the business question has a clear answer.</p>
+      <p>I focus on <strong>data cleaning, exploratory analysis, KPI reporting</strong> and <strong>dashboard design</strong>. I care as much about how a finding is communicated as about the analysis itself, because insight only matters if someone can act on it.</p>
+      <p>I'm a <strong>Computer Science graduate from JNTUH (First Class with Distinction)</strong>, which gave me a solid technical base in programming and databases. I'm now building on it with a Data Analytics course in Adelaide, adding new projects here as I go.</p>
+    </div>
+    <div class="card profile" data-r>
+      <h3>Ramalakshmi</h3>
+      <div class="role">// data analyst</div>
+      <dl>
+        <dt>Focus</dt><dd>Analytics &amp; dashboards</dd>
+        <dt>Location</dt><dd>Adelaide, Australia</dd>
+        <dt>Strengths</dt><dd>Data concepts &middot; Microsoft Office</dd>
+        <dt>Degree</dt><dd>Computer Science, JNTUH<br><span style="color:var(--hi);font-size:13px">First Class with Distinction</span></dd>
+        <dt>Studying</dt><dd>Data Analytics</dd>
+        <dt>Status</dt><dd style="color:var(--a1)">Open to analyst roles</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div data-r>
+      <div class="eyebrow">Skills</div>
+      <h2>What I use <span class="grad">to get answers</span></h2>
+      <p class="lead">The tools I reach for at each stage, from raw file to final dashboard.</p>
+    </div>
+    <div class="skills">
+      <div class="card skill" data-r>
+        <div class="ico">▦</div>
+        <h3>Microsoft Office &amp; BI</h3>
+        <p>Dashboards, pivot analysis, polished reports and presentations.</p>
+        <div class="tags"><span>Excel</span><span>Word</span><span>PowerPoint</span><span>Outlook</span><span>Pivot Tables</span><span>Power BI</span></div>
+        <div class="meter"><div><span>Microsoft Office</span><span>Strong</span></div><s><i data-w="90"></i></s></div>
+      </div>
+      <div class="card skill" data-r>
+        <div class="ico">⌘</div>
+        <h3>Data concepts &amp; analysis</h3>
+        <p>Solid grasp of how data is structured, cleaned and analysed to answer real questions.</p>
+        <div class="tags"><span>Data modelling</span><span>Data cleaning</span><span>Statistics</span><span>SQL</span><span>Python</span></div>
+        <div class="meter"><div><span>Data concepts</span><span>Strong</span></div><s><i data-w="88"></i></s></div>
+      </div>
+      <div class="card skill" data-r>
+        <div class="ico">◔</div>
+        <h3>Storytelling</h3>
+        <p>Turning findings into clear visuals and recommendations.</p>
+        <div class="tags"><span>Data viz</span><span>KPI design</span><span>Tableau</span><span>Presenting</span></div>
+        <div class="meter"><div><span>Visualisation</span><span>Advanced</span></div><s><i data-w="82"></i></s></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="process">
+  <div class="wrap">
+    <div data-r>
+      <div class="eyebrow">Process</div>
+      <h2>How I approach <span class="grad">every dataset</span></h2>
+      <p class="lead">A repeatable workflow that keeps analysis honest and focused on the decision it supports.</p>
+    </div>
+    <div class="flow">
+      <div class="card step" data-r><h3>Ask</h3><p>Pin down the business question and what a useful answer looks like.</p></div>
+      <div class="card step" data-r><h3>Clean</h3><p>Fix duplicates, gaps and formats so the data can be trusted.</p></div>
+      <div class="card step" data-r><h3>Explore</h3><p>Slice, aggregate and test ideas to find the real patterns.</p></div>
+      <div class="card step" data-r><h3>Visualise</h3><p>Build charts and dashboards that make the story obvious.</p></div>
+      <div class="card step" data-r><h3>Recommend</h3><p>Turn findings into clear, actionable next steps.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JOURNEY ================= -->
+<section id="journey">
+  <div class="wrap">
+    <div data-r>
+      <div class="eyebrow">Journey</div>
+      <h2>Experience <span class="grad">&amp; learning</span></h2>
+    </div>
+    <div class="tl">
+      <!-- Copy a .card block to add another entry. Newest first. -->
+      <div class="card" data-r>
+        <div class="when">2026 · Present</div>
+        <h3>Data Analytics Program</h3>
+        <div class="org">Data Analytics course · Adelaide, Australia</div>
+        <ul>
+          <li>Building end-to-end analytics projects with Excel, SQL and BI tools.</li>
+          <li>Publishing each project with documentation on GitHub.</li>
+        </ul>
+      </div>
+      <div class="card" data-r>
+        <div class="when">Graduated</div>
+        <h3>Bachelor's in Computer Science</h3>
+        <div class="org">Jawaharlal Nehru Technological University Hyderabad (JNTUH)</div>
+        <ul>
+          <li>Graduated with <strong style="color:var(--ink)">First Class with Distinction</strong>.</li>
+          <li>Strong foundation in programming, databases and problem solving.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <div data-r>
+      <div class="eyebrow">Projects</div>
+      <h2>Work I've <span class="grad">shipped</span></h2>
+      <p class="lead">Each project starts with a question and ends with an answer someone could act on.</p>
+    </div>
+    <div class="projects">
+      <article class="card proj" data-r>
+        <div class="top"><span class="kind">DASHBOARD</span><span class="mono" style="color:var(--faint);font-size:12px">Excel</span></div>
+        <h3>Car Website Revenue Dashboard</h3>
+        <p>An interactive Excel dashboard analysing car website revenue to surface trends, top performers and the main revenue drivers at a glance.</p>
+        <div class="stats">
+          <div><b>102K+</b><span>rows of data</span></div>
+          <div><b>Interactive</b><span>slicers &amp; filters</span></div>
+        </div>
+        <div class="tags"><span>Excel</span><span>Pivot Tables</span><span>Charts</span><span>KPIs</span></div>
+        <div class="links"><a href="https://github.com/Ramalakshmi-data/car-website-revenue-dashboard" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+      </article>
+
+      <!-- Replace this placeholder with your next project (copy the article above). -->
+      <article class="card proj soon" data-r>
+        <div class="kind" style="margin-bottom:12px">IN PROGRESS</div>
+        <h3>Next project loading…</h3>
+        <p>New analysis coming soon as I progress through my course.</p>
+      </article>
+    </div>
+
+    <!-- Auto-updating: lists your public GitHub repos every time the page loads. Nothing to edit here. -->
+    <div class="latest">
+      <div class="latest-head" data-r>
+        <div>
+          <h3>Latest from my GitHub</h3>
+          <p>Pulled live from my repositories, so new work appears here automatically.</p>
+        </div>
+        <span class="live"><i></i>auto-updating</span>
+      </div>
+      <div class="repos" id="repos">
+        <div class="card repo skel"></div><div class="card repo skel"></div><div class="card repo skel"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="card contact" data-r>
+      <div class="eyebrow" style="justify-content:center">Contact</div>
+      <h2>Open to <span class="grad">data analyst roles</span> and collaborations</h2>
+      <p class="lead">Have a dataset, a question or an opportunity? I'd love to hear from you.</p>
+      <div class="btns">
+        <a class="btn p" href="mailto:ramalakshmi.pallinti9@gmail.com">Email me</a>
+        <a class="btn s" href="https://www.linkedin.com/in/ramalakshmi-pallinti" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn s" href="https://github.com/Ramalakshmi-data" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© <span id="yr"></span> Ramalakshmi · Built with HTML &amp; CSS, hosted on GitHub Pages</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* chart bars */
+var vals=[42,55,48,63,58,71,66,80,74,92,85,78],
+    mon=['J','F','M','A','M','J','J','A','S','O','N','D'],
+    max=Math.max.apply(null,vals),chart=document.getElementById('chart');
+chart.innerHTML=vals.map(function(v){return '<u class="'+(v===max?'top':'')+'" data-h="'+v+'"></u>'}).join('');
+document.getElementById('months').innerHTML=mon.map(function(m){return '<span>'+m+'</span>'}).join('');
+
+/* typed query */
+var q='<span class="k">SELECT</span> month, <span class="k">SUM</span>(revenue)\n<span class="k">FROM</span> car_sales <span class="k">GROUP BY</span> month;';
+function typeQuery(el){
+  var plain=q.replace(/<[^>]+>/g,''),i=0;
+  (function step(){
+    i++;
+    // rebuild html up to i visible chars
+    var out='',n=0,inTag=false;
+    for(var j=0;j<q.length&&n<i;j++){var ch=q[j];if(ch==='<')inTag=true;out+=ch;if(ch==='>'){inTag=false;continue}if(!inTag)n++}
+    if(/<span[^>]*>[^<]*$/.test(out))out+='</span>';
+    el.innerHTML=out.replace(/\n/g,'<br>')+'<span class="c"></span>';
+    if(i<plain.length)setTimeout(step,38);
+  })();
+}
+
+/* count up */
+function countUp(el){
+  var end=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',t0=null;
+  function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1400,1),e=1-Math.pow(1-p,3);
+    el.textContent=pre+(end*e).toFixed(dec)+suf;if(p<1)requestAnimationFrame(f)}
+  requestAnimationFrame(f);
+}
+
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function fire(el){
+  el.classList.add('in');
+  el.querySelectorAll('[data-count]').forEach(function(c){reduce?c.textContent=(c.dataset.prefix||'')+c.dataset.count+(c.dataset.suffix||''):countUp(c)});
+  el.querySelectorAll('[data-w]').forEach(function(b){b.style.width=b.dataset.w+'%'});
+  if(el.classList.contains('dash')){
+    el.querySelectorAll('[data-h]').forEach(function(b,i){setTimeout(function(){b.style.height=b.dataset.h+'%'},reduce?0:900+i*70)});
+    reduce?document.getElementById('typed').innerHTML=q.replace(/\n/g,'<br>'):typeQuery(document.getElementById('typed'));
+  }
+}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fire(e.target);io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('[data-r]').forEach(function(el,i){el.style.transitionDelay=(i%5)*70+'ms';io.observe(el)});
+
+/* ===== auto-updating repo list ===== */
+(function(){
+  var USER='Ramalakshmi-data';
+  var HIDE=['ramalakshmi-data.github.io','ramalakshmi-data']; // repos not to list (lower-case)
+  var box=document.getElementById('repos');
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function nice(n){return n.replace(/[-_]+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase()})}
+  function ago(d){var days=Math.floor((Date.now()-new Date(d))/864e5);
+    return days<1?'today':days<2?'yesterday':days<30?days+' days ago':days<365?Math.floor(days/30)+' mo ago':Math.floor(days/365)+' yr ago'}
+  function render(list){
+    list=list.filter(function(r){return !r.fork && !r.archived && HIDE.indexOf(r.name.toLowerCase())<0})
+             .sort(function(a,b){return new Date(b.pushed_at)-new Date(a.pushed_at)}).slice(0,6);
+    if(!list.length){box.innerHTML='<p class="repos-msg">New projects will appear here as I publish them.</p>';return}
+    box.innerHTML=list.map(function(r){
+      var tags=(r.topics||[]).slice(0,4).map(function(t){return '<span>'+esc(t)+'</span>'}).join('');
+      return '<a class="card repo" href="'+esc(r.html_url)+'" target="_blank" rel="noopener">'+
+        '<h4>'+esc(nice(r.name))+' ↗</h4>'+
+        '<p>'+esc(r.description||'No description yet.')+'</p>'+
+        (tags?'<div class="tags">'+tags+'</div>':'')+
+        '<div class="meta">'+(r.language?'<span class="lang">'+esc(r.language)+'</span>':'')+
+        '<span>★ '+r.stargazers_count+'</span><span>Updated '+ago(r.pushed_at)+'</span></div></a>';
+    }).join('');
+  }
+  function fail(){box.innerHTML='<p class="repos-msg">Couldn\'t load repositories right now. <a href="https://github.com/'+USER+'?tab=repositories" target="_blank" rel="noopener">See them on GitHub ↗</a></p>'}
+  // short cache so repeat visits don't hit GitHub's rate limit
+  var KEY='repos_'+USER,cached=null;
+  try{cached=JSON.parse(sessionStorage.getItem(KEY)||'null')}catch(e){}
+  if(cached&&Date.now()-cached.t<6e5){render(cached.d);return}
+  fetch('https://api.github.com/users/'+USER+'/repos?per_page=100&sort=pushed',{headers:{'Accept':'application/vnd.github+json'}})
+    .then(function(r){if(!r.ok)throw 0;return r.json()})
+    .then(function(d){try{sessionStorage.setItem(KEY,JSON.stringify({t:Date.now(),d:d}))}catch(e){}render(d)})
+    .catch(fail);
+})();
+
+/* active nav link */
+var links=[].slice.call(document.querySelectorAll('nav a'));
+var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+  links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('main section').forEach(function(s){so.observe(s)});
+links.forEach(function(a){a.addEventListener('click',function(){document.getElementById('menu').classList.remove('open')})});
+</script>
+</body>
+</html>
