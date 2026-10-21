@@ -16,7 +16,7 @@
 I'm a data analyst who enjoys taking large, messy datasets and turning them into dashboards and stories that help people make decisions.
 	
 📍 Location	Adelaide, Australia
-🎓 Degree	Computer Science, JNTUH · First Class with Distinction
+🎓 Degree	Computer Science
 📚 Studying	Data Analytics
 💪 Strengths	Data concepts · Microsoft Office
 🤝 Open to	Data analyst roles and collaborations
