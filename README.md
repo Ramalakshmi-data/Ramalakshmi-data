@@ -6,7 +6,7 @@
   <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=16&duration=3200&pause=900&color=2DD4BF&center=true&vCenter=true&width=520&lines=SELECT+insights+FROM+raw_data%3B;Strong+in+data+concepts+%2B+Microsoft+Office;CS+graduate+%C2%B7+JNTUH+%C2%B7+First+Class+with+Distinction;Based+in+Adelaide%2C+Australia" alt="Typing intro" />
 </p>
 <p align="center">
-  <a href="https://ramalakshmi-data.github.io"><img src="https://img.shields.io/badge/Portfolio-2DD4BF?style=for-the-badge&logo=githubpages&logoColor=08141A&labelColor=2DD4BF" alt="Portfolio" /></a>
+  <a href="https://datascienceportfol.io/ramalakshmipallinti1><img src="https://img.shields.io/badge/Portfolio-2DD4BF?style=for-the-badge&logo=githubpages&logoColor=08141A&labelColor=2DD4BF" alt="Portfolio" /></a>
   <a href="https://www.linkedin.com/in/ramalakshmi-pallinti"><img src="https://img.shields.io/badge/LinkedIn-0C1D25?style=for-the-badge&logo=linkedin&logoColor=38BDF8" alt="LinkedIn" /></a>
   <a href="mailto:ramalakshmi.pallinti9@gmail.com"><img src="https://img.shields.io/badge/Email-0C1D25?style=for-the-badge&logo=gmail&logoColor=38BDF8" alt="Email" /></a>
   <img src="https://img.shields.io/badge/●%20Open%20to%20work-08141A?style=for-the-badge&logoColor=2DD4BF" alt="Open to work" />
