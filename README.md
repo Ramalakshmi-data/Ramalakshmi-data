@@ -41,7 +41,10 @@ Project	What it shows	Tools
 <!-- Add a row here for projects you want to highlight. -->
 🆕 Latest from my GitHub
 <!-- LATEST_REPOS:START -->
-This list updates automatically every day.
+| Project | Description | Language | Updated |
+|---|---|---|---|
+| [**Ramalakshmi**](https://github.com/Ramalakshmi-data/Ramalakshmi) | — | — | 2026-10-21 |
+| [**Car Website Revenue Dashboard**](https://github.com/Ramalakshmi-data/car-website-revenue-dashboard) | Interactive Excel dashboard analysing 102K+ rows of car website revenue data | — | 2026-10-20 |
 <!-- LATEST_REPOS:END -->
 ---
 🔁 How I approach a project
