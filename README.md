@@ -43,7 +43,8 @@ Project	What it shows	Tools
 <!-- LATEST_REPOS:START -->
 | Project | Description | Language | Updated |
 |---|---|---|---|
-| [**Ramalakshmi**](https://github.com/Ramalakshmi-data/Ramalakshmi) | — | — | 2026-10-21 |
+| [**Streaming Viewing Analytics**](https://github.com/Ramalakshmi-data/streaming-viewing-analytics) | — | HTML | 2026-10-26 |
+| [**Grocery Basket Analysis**](https://github.com/Ramalakshmi-data/grocery-basket-analysis) | — | HTML | 2026-10-26 |
 | [**Car Website Revenue Dashboard**](https://github.com/Ramalakshmi-data/car-website-revenue-dashboard) | Interactive Excel dashboard analysing 102K+ rows of car website revenue data | — | 2026-10-20 |
 <!-- LATEST_REPOS:END -->
 ---
